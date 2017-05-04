@@ -20,7 +20,7 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Object msg)
             throws Exception {
-
+        System.out.println("ctx >>> " +ctx.channel().id());
         /**
          * HTTP接入，WebSocket第一次连接使用HTTP连接,用于握手
          */
@@ -49,7 +49,14 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> 
     }
 
 
-    private void handleHttpRequest(ChannelHandlerContext ctx,FullHttpRequest req){
+    @Override
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        ctx.writeAndFlush(new TextWebSocketFrame("已经和服务器建立连接-channelActive"));
+        super.channelActive(ctx);
+    }
+
+    private void handleHttpRequest(ChannelHandlerContext ctx, FullHttpRequest req){
+        System.out.println(">>>handleHttpRequest");
         if (!req.getDecoderResult().isSuccess()
                 || (!"websocket".equals(req.headers().get("Upgrade")))) {
             sendHttpResponse(ctx, req, new DefaultFullHttpResponse(
@@ -104,7 +111,7 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> 
 
     private void handlerWebSocketFrame(ChannelHandlerContext ctx,
             WebSocketFrame frame) {
-
+        System.out.println(">>>handlerWebSocketFrame");
         /**
          * 判断是否关闭链路的指令
          */

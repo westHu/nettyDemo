@@ -12,6 +12,8 @@ public class HelloServerInitializer extends ChannelInitializer<SocketChannel> {
 
     @Override
     protected void initChannel(SocketChannel ch) throws Exception {
+        System.out.println();
+
         ChannelPipeline pipeline = ch.pipeline();
 
         // 以("\n")为结尾分割的 解码器

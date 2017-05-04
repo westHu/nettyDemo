@@ -1,4 +1,4 @@
-package cn.pengj.tpcdemo1;
+package cn.pengj.fire;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
@@ -13,7 +13,7 @@ public class HelloClientInitializer extends ChannelInitializer<SocketChannel> {
     @Override
     protected void initChannel(SocketChannel ch) throws Exception {
         ChannelPipeline pipeline = ch.pipeline();
-        System.out.println();
+
         /*
          * 这个地方的 必须和服务端对应上。否则无法正常解码和编码
          * 

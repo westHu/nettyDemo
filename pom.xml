@@ -29,9 +29,9 @@
     </dependency>
 
     <dependency>
-      <groupId>com.xkeshi</groupId>
-      <artifactId>message-sdk</artifactId>
-      <version>1.1.6-SNAPSHOT</version>
+      <groupId>com.google.protobuf</groupId>
+      <artifactId>protobuf-java</artifactId>
+      <version>2.6.1</version>
     </dependency>
 
   </dependencies>

@@ -1,9 +1,9 @@
-package cn.pengj.tpcdemo1;
-
-import java.net.InetAddress;
+package cn.pengj.fire;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
+
+import java.net.InetAddress;
 
 public class HelloServerHandler extends SimpleChannelInboundHandler<String> {
     

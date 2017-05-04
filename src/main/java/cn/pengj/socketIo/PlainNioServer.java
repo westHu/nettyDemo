@@ -70,4 +70,13 @@ public class PlainNioServer {
 		}
 	}
 
+	public static void main(String[] args) {
+		PlainNioServer nioServer = new PlainNioServer();
+		try {
+			nioServer.server(7878);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 }

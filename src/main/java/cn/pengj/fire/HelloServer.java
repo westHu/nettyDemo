@@ -1,4 +1,4 @@
-package cn.pengj.tpcdemo1;
+package cn.pengj.fire;
 
 
 import io.netty.bootstrap.ServerBootstrap;
@@ -18,8 +18,6 @@ public class HelloServer {
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
-//
-            System.out.println();
             ServerBootstrap b = new ServerBootstrap();
             b.group(bossGroup, workerGroup);
             b.channel(NioServerSocketChannel.class);

@@ -23,7 +23,7 @@ public class PlainOioServer {
 				System.out.println("Accepted connection from " + clientSocket);
 				//create new thread to handle connection
 				new Thread(new Runnable() {
-					@Override
+
 					public void run() {
 						OutputStream out;
 						try{
@@ -49,4 +49,14 @@ public class PlainOioServer {
 		}
 	}
 
+
+	public static void main(String[] args) {
+		PlainOioServer server = new PlainOioServer();
+		try {
+			server.server(7979);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 }
